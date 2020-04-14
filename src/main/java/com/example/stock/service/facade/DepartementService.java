@@ -3,15 +3,15 @@ package com.example.stock.service.facade;
 import java.util.List;
 import java.util.Optional;
 
-import com.example.stock.bean.Banque;
-import com.example.stock.bean.Congee;
+import com.example.stock.bean.CompteBancaire;
+import com.example.stock.bean.TypeCongee;
 import com.example.stock.bean.Departement;
 
 public interface DepartementService {
 	Departement findByid(Long id);
-	Departement findByNomDepartemant(String nomDepartement);
-	Departement findBySupEmail(String email);
-	Departement findBySupMatricule(Integer matricule);
+	Departement findByNom(String nom);
+	Departement findByChefEmail(String email);
+	Departement findByChefMatricule(Integer matricule);
 	List<Departement> findAll();
 	int save(Departement departement);
 	int deleteById(Long id);

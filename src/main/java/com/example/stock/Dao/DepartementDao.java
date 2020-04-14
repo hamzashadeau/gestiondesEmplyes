@@ -11,7 +11,7 @@ import com.example.stock.bean.Employe;
 
 @Repository
 public interface DepartementDao extends JpaRepository<Departement, Long> {
-Departement findByNomDepartemant(String nomDepartement);
-Departement findBySupEmail(String email);
-Departement findBySupMatricule(Integer matricule);
+Departement findByNom(String nom);
+Departement findByChefEmail(String email);
+Departement findByChefMatricule(Integer matricule);
 }

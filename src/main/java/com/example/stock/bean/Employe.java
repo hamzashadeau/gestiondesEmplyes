@@ -38,37 +38,16 @@ private Date dateSortie;
 private Double montantDeBase;
 private Double monatntModifie;
 @ManyToOne
-private Banque banque;
+private CompteBancaire compteBancaire;
+@ManyToOne
+private Horraire horraire;
+
 
 public Long getId() {
 	return id;
 }
 public void setId(Long id) {
 	this.id = id;
-}
-public Employe(Long matricule, String fullName, String email, String gender, Integer cin, Integer cnss, Integer enfants,
-		String adresse, String pays, Date dateDeNaissance, String password, Integer tel, Employe sup, Departement dep,
-		Date dateEntree, Date dateSortie, Double montantDeBase, Double monatntModifie, Banque banque) {
-	super();
-	this.matricule = matricule;
-	this.fullName = fullName;
-	this.email = email;
-	this.gender = gender;
-	this.cin = cin;
-	this.cnss = cnss;
-	this.enfants = enfants;
-	this.adresse = adresse;
-	this.pays = pays;
-	this.dateDeNaissance = dateDeNaissance;
-	this.password = password;
-	this.tel = tel;
-	this.sup = sup;
-	this.dep = dep;
-	this.dateEntree = dateEntree;
-	this.dateSortie = dateSortie;
-	this.montantDeBase = montantDeBase;
-	this.monatntModifie = monatntModifie;
-	this.banque = banque;
 }
 public Employe() {
 	super();
@@ -170,11 +149,11 @@ public Double getMonatntModifie() {
 public void setMonatntModifie(Double monatntModifie) {
 	this.monatntModifie = monatntModifie;
 }
-public Banque getBanque() {
-	return banque;
+public CompteBancaire getBanque() {
+	return compteBancaire;
 }
-public void setBanque(Banque banque) {
-	this.banque = banque;
+public void setBanque(CompteBancaire compteBancaire) {
+	this.compteBancaire = compteBancaire;
 }
 
 public Long getMatricule() {
@@ -189,14 +168,44 @@ public String getPassword() {
 public void setPassword(String password) {
 	this.password = password;
 }
+
+public Employe(Long matricule, String fullName, String email, String gender, Integer cin, Integer cnss, Integer enfants,
+		String adresse, String pays, Date dateDeNaissance, String password, Integer tel, Employe sup, Departement dep,
+		Date dateEntree, Date dateSortie, Double montantDeBase, Double monatntModifie, CompteBancaire compteBancaire,
+		Horraire horraire) {
+	super();
+	this.matricule = matricule;
+	this.fullName = fullName;
+	this.email = email;
+	this.gender = gender;
+	this.cin = cin;
+	this.cnss = cnss;
+	this.enfants = enfants;
+	this.adresse = adresse;
+	this.pays = pays;
+	this.dateDeNaissance = dateDeNaissance;
+	this.password = password;
+	this.tel = tel;
+	this.sup = sup;
+	this.dep = dep;
+	this.dateEntree = dateEntree;
+	this.dateSortie = dateSortie;
+	this.montantDeBase = montantDeBase;
+	this.monatntModifie = monatntModifie;
+	this.compteBancaire = compteBancaire;
+	this.horraire = horraire;
+}
 @Override
 public String toString() {
 	return "Employe [id=" + id + ", matricule=" + matricule + ", fullName=" + fullName + ", email=" + email
 			+ ", gender=" + gender + ", cin=" + cin + ", cnss=" + cnss + ", enfants=" + enfants + ", adresse=" + adresse
 			+ ", pays=" + pays + ", dateDeNaissance=" + dateDeNaissance + ", password=" + password + ", tel=" + tel
 			+ ", sup=" + sup + ", dep=" + dep + ", dateEntree=" + dateEntree + ", dateSortie=" + dateSortie
-			+ ", montantDeBase=" + montantDeBase + ", monatntModifie=" + monatntModifie + ", banque=" + banque + "]";
+			+ ", montantDeBase=" + montantDeBase + ", monatntModifie=" + monatntModifie + ", compteBancaire="
+			+ compteBancaire + ", horraire=" + horraire + "]";
 }
+
+
 
 
 }

@@ -7,18 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.stock.Dao.AvancementEmployeDao;
-import com.example.stock.Dao.BanqueDao;
-import com.example.stock.Dao.CongeeDao;
+import com.example.stock.Dao.CompteBancaireDao;
+import com.example.stock.Dao.TypeCongeeDao;
 import com.example.stock.Dao.DepFonctionDao;
 import com.example.stock.Dao.DepartementDao;
 import com.example.stock.bean.AvancementEmploye;
-import com.example.stock.bean.Banque;
-import com.example.stock.bean.Congee;
+import com.example.stock.bean.CompteBancaire;
+import com.example.stock.bean.TypeCongee;
 import com.example.stock.bean.DepFonction;
 import com.example.stock.bean.Departement;
 import com.example.stock.service.facade.AvancementEmployeService;
-import com.example.stock.service.facade.BanqueService;
-import com.example.stock.service.facade.CongeeService;
+import com.example.stock.service.facade.CompteBancaireService;
+import com.example.stock.service.facade.TypeCongeeService;
 import com.example.stock.service.facade.DepFonctionService;
 import com.example.stock.service.facade.DepartementService;
 
@@ -56,8 +56,8 @@ public int deleteById(Long id) {
 }
 
 @Override
-public List<DepFonction> findByDepartemantNomDepartemant(String nomDepartemant) {
-	return depFonctionDao.findByDepartemantNomDepartemant(nomDepartemant);
+public List<DepFonction> findByDepartemantNom(String nomDepartemant) {
+	return depFonctionDao.findByDepartemantNom(nomDepartemant);
 }
 
 @Override

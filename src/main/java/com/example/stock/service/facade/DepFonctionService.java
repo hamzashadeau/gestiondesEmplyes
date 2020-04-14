@@ -11,7 +11,7 @@ import com.example.stock.bean.Employe;
 
 public interface DepFonctionService {
 	DepFonction findByid(Long id);
-	List<DepFonction> findByDepartemantNomDepartemant(String nomDepartemant);
+	List<DepFonction> findByDepartemantNom(String nomDepartemant);
 	List<DepFonction> findByFonctionLibelle(String libelle);
 	List<DepFonction> findAll();
 	int save(DepFonction employe);

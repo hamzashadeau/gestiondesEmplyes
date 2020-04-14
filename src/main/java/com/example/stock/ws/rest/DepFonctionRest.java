@@ -25,9 +25,9 @@ private DepFonctionService depFonctionService;
 public DepFonction findByid(@PathVariable Long id) {
 	return depFonctionService.findByid(id);
 }
-@GetMapping("findByDepartemantNomDepartemant/nomDepartemant/{nomDepartemant}")
-public List<DepFonction> findByDepartemantNomDepartemant(@PathVariable String nomDepartemant) {
-	return depFonctionService.findByDepartemantNomDepartemant(nomDepartemant);
+@GetMapping("findByDepartemantNom/nomDepartemant/{nomDepartemant}")
+public List<DepFonction> findByDepartemantNom(@PathVariable String nomDepartemant) {
+	return depFonctionService.findByDepartemantNom(nomDepartemant);
 }
 @GetMapping("findByFonctionLibelle/libelle/{libelle}")
 public List<DepFonction> findByFonctionLibelle(@PathVariable String libelle) {

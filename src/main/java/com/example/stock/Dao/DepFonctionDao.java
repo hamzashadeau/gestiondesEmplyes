@@ -11,6 +11,6 @@ import com.example.stock.bean.DepFonction;
 
 @Repository
 public interface DepFonctionDao extends JpaRepository<DepFonction, Long> {
-List<DepFonction> findByDepartemantNomDepartemant(String nomDepartemant);
+List<DepFonction> findByDepartemantNom(String nomDepartemant);
 List<DepFonction> findByFonctionLibelle(String libelle);
 }

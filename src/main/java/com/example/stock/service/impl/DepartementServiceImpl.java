@@ -7,16 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.stock.Dao.AvancementEmployeDao;
-import com.example.stock.Dao.BanqueDao;
-import com.example.stock.Dao.CongeeDao;
+import com.example.stock.Dao.CompteBancaireDao;
+import com.example.stock.Dao.TypeCongeeDao;
 import com.example.stock.Dao.DepartementDao;
 import com.example.stock.bean.AvancementEmploye;
-import com.example.stock.bean.Banque;
-import com.example.stock.bean.Congee;
+import com.example.stock.bean.CompteBancaire;
+import com.example.stock.bean.TypeCongee;
 import com.example.stock.bean.Departement;
 import com.example.stock.service.facade.AvancementEmployeService;
-import com.example.stock.service.facade.BanqueService;
-import com.example.stock.service.facade.CongeeService;
+import com.example.stock.service.facade.CompteBancaireService;
+import com.example.stock.service.facade.TypeCongeeService;
 import com.example.stock.service.facade.DepartementService;
 
 @Service
@@ -53,18 +53,18 @@ public int deleteById(Long id) {
 }
 
 @Override
-public Departement findByNomDepartemant(String nomDepartement) {
-	return departementDao.findByNomDepartemant(nomDepartement);
+public Departement findByNom(String nom){
+	return departementDao.findByNom(nom);
 }
 
 @Override
-public Departement findBySupEmail(String email) {
-	return departementDao.findBySupEmail(email);
+public Departement findByChefEmail(String email) {
+	return departementDao.findByChefEmail(email);
 }
 
 @Override
-public Departement findBySupMatricule(Integer matricule) {
-	return departementDao.findBySupMatricule(matricule);
+public Departement findByChefMatricule(Integer matricule) {
+	return departementDao.findByChefMatricule(matricule);
 }
 
 @Override

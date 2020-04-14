@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.example.stock.bean.Employe;
+import com.example.stock.bean.SoldeCongeeEmploye;
 
 @Repository
 public interface EmployeDao extends JpaRepository<Employe, Long> {
@@ -17,5 +18,4 @@ Employe findByEmail(String email);
 Employe findByCnss(Integer cnss);
 List<Employe> findBySupId(Long id);
 List<Employe> findBySupEmail(String email);
-
 }

@@ -25,6 +25,8 @@ private Double montant;
 private Date dateAvancement;
 @Temporal(TemporalType.DATE)
 private Date dateDemande;
+@ManyToOne
+private EtatAvancement etatAvancement;
 public AvancementEmploye() {
 	super();
 	// TODO Auto-generated constructor stub
@@ -36,21 +38,6 @@ public Long getId() {
 
 public void setId(Long id) {
 	this.id = id;
-}
-
-public AvancementEmploye(Avancement avancement, Employe employe, Double montant, Date dateAvancement,
-		Date dateDemande) {
-	super();
-	this.avancement = avancement;
-	this.employe = employe;
-	this.montant = montant;
-	this.dateAvancement = dateAvancement;
-	this.dateDemande = dateDemande;
-}
-@Override
-public String toString() {
-	return "AvancementEmploye [id=" + id + ", avancement=" + avancement + ", employe=" + employe + ", montant="
-			+ montant + ", dateAvancement=" + dateAvancement + ", dateDemande=" + dateDemande + "]";
 }
 public Avancement getAvancement() {
 	return avancement;
@@ -81,6 +68,32 @@ public Date getDateDemande() {
 }
 public void setDateDemande(Date dateDemande) {
 	this.dateDemande = dateDemande;
+}
+
+public AvancementEmploye(Avancement avancement, Employe employe, Double montant, Date dateAvancement, Date dateDemande,
+		EtatAvancement etatAvancement) {
+	super();
+	this.avancement = avancement;
+	this.employe = employe;
+	this.montant = montant;
+	this.dateAvancement = dateAvancement;
+	this.dateDemande = dateDemande;
+	this.etatAvancement = etatAvancement;
+}
+
+public EtatAvancement getEtatAvancement() {
+	return etatAvancement;
+}
+
+public void setEtatAvancement(EtatAvancement etatAvancement) {
+	this.etatAvancement = etatAvancement;
+}
+
+@Override
+public String toString() {
+	return "AvancementEmploye [id=" + id + ", avancement=" + avancement + ", employe=" + employe + ", montant="
+			+ montant + ", dateAvancement=" + dateAvancement + ", dateDemande=" + dateDemande + ", etatAvancement="
+			+ etatAvancement + "]";
 }
 
 

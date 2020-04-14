@@ -25,18 +25,19 @@ public Departement findByid(@PathVariable Long id) {
 }
 
 @GetMapping("findByNomDepartemant/nomDepartement/{nomDepartement}")
-public Departement findByNomDepartemant(@PathVariable String nomDepartement) {
-	return departementService.findByNomDepartemant(nomDepartement);
+public Departement findByNom(@PathVariable String nom) {
+	return departementService.findByNom( nom);
+
 }
 
 @GetMapping("findBySupEmail/email/{email}")
-public Departement findBySupEmail(@PathVariable String email) {
-	return departementService.findBySupEmail(email);
+public Departement findByChefEmail(@PathVariable String email) {
+	return departementService.findByChefEmail(email);
 }
 
 @GetMapping("findBySupMatricule/matricule/{matricule}")
-public Departement findBySupMatricule(@PathVariable Integer matricule) {
-	return departementService.findBySupMatricule(matricule);
+public Departement findByChefMatricule(@PathVariable Integer matricule) {
+	return departementService.findByChefMatricule(matricule);
 }
 
 @GetMapping("findAll")
