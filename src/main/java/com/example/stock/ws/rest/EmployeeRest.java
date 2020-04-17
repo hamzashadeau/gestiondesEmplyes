@@ -18,6 +18,31 @@ import com.example.stock.service.facade.EmployeService;
 public class EmployeeRest {
 @Autowired
 private EmployeService employeService;
+
+@GetMapping("nombreDesEmployes")
+public int nombreDesEmployes() {
+	return employeService.nombreDesEmployes();
+}
+
+@GetMapping("nombreDesEmployesParDepartements/nomDepartement/{nomDepartement}")
+public int nombreDesEmployesParDepartements(@PathVariable String nomDepartement) {
+	return employeService.nombreDesEmployesParDepartements(nomDepartement);
+}
+
+@GetMapping("nombreDesEmployesParAnneeDeEntré/annee/{annee}")
+public int nombreDesEmployesParAnneeDeEntré(@PathVariable Integer annee) {
+	return employeService.nombreDesEmployesParAnneeDeEntré(annee);
+}
+
+@GetMapping("MoyenDeSalaireParAnnee/annee/{annee}")
+public Double MoyenDeSalaireParAnnee(@PathVariable int annee) {
+	return employeService.MoyenDeSalaireParAnnee(annee);
+}
+
+@GetMapping("EmployesParAnneeDeEntré/annee/{annee}")
+public List<Employe> EmployesParAnneeDeEntré(@PathVariable Integer annee) {
+	return employeService.EmployesParAnneeDeEntré(annee);
+}
 @GetMapping("findByCin/cin/{cin}")
 public Employe findByCin(@PathVariable Integer cin) {
 	return employeService.findByCin(cin);

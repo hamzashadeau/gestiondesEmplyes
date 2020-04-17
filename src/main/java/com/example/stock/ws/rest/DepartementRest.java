@@ -19,6 +19,11 @@ public class DepartementRest {
 @Autowired
 private DepartementService departementService;
 
+@GetMapping("nombreDesDepartements")
+public int nombreDesDepartements() {
+	return departementService.nombreDesDepartements();
+}
+
 @GetMapping("findByid/id/{id}")
 public Departement findByid(@PathVariable Long id) {
 	return departementService.findByid(id);

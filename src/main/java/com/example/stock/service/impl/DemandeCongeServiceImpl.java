@@ -1,5 +1,6 @@
 package com.example.stock.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.stock.Dao.DemandeCongeDao;
 import com.example.stock.bean.DemandeConge;
+import com.example.stock.bean.Departement;
 import com.example.stock.service.facade.DemandeCongeService;
 
 @Service
@@ -14,6 +16,11 @@ public class DemandeCongeServiceImpl implements DemandeCongeService {
 @Autowired
 private DemandeCongeDao demandeCongeDao;
 
+
+@Override
+public DemandeConge findByEtat(String etat) {
+	return demandeCongeDao.findByEtat(etat);
+}
 
 @Override
 public int save(DemandeConge demandeConge) {
@@ -61,5 +68,17 @@ public DemandeConge findByEmployeMatricule(Integer matricule) {
 @Override
 public List<DemandeConge> findAll() {
 	return demandeCongeDao.findAll();
+}
+public int nombreDesDemandes() {
+	return findAll().size();
+}
+public int nombreDesDemandesDeDepartement(String nomDepartement) {
+	List<DemandeConge> demandes = findAll();
+	List<DemandeConge> resultats = new ArrayList<DemandeConge>();
+	demandes.forEach(e->{
+		if(e.getEmploye().getDep().getNom().equals(nomDepartement))
+			resultats.add(e);
+	});
+	return resultats.size();
 }
 }

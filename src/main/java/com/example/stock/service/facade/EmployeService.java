@@ -16,5 +16,9 @@ public interface EmployeService {
 	int save(Employe employe);
 	int deleteById(Long id);
 	Employe findByid(Long id);
-
+	int nombreDesEmployes();
+	int nombreDesEmployesParDepartements(String nomDepartement);
+	public int nombreDesEmployesParAnneeDeEntré(Integer annee);
+	public Double MoyenDeSalaireParAnnee(int annee);
+	public List<Employe> EmployesParAnneeDeEntré(Integer annee);
 }

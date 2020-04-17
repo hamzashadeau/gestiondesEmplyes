@@ -19,6 +19,11 @@ public class DemandeCongeRest {
 @Autowired
 private DemandeCongeService demandeCongeService;
 
+@GetMapping("findByEtat/etat/{etat}")
+public DemandeConge findByEtat(@PathVariable String etat) {
+	return demandeCongeService.findByEtat(etat);
+}
+
 @GetMapping("findByid/id/{id}")
 public DemandeConge findByid(@PathVariable Long id) {
 	return demandeCongeService.findByid(id);

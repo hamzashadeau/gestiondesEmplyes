@@ -14,5 +14,6 @@ public interface DemandeCongeDao extends JpaRepository<DemandeConge, Long> {
 DemandeConge findByTypeCongeeLibelle(String libelle);
 DemandeConge findByEmployeEmail(String email);
 DemandeConge findByEmployeMatricule(Integer matricule);
+DemandeConge findByEtat(String etat);
 
 }

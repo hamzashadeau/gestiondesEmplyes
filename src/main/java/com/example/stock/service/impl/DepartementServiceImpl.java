@@ -72,5 +72,10 @@ public List<Departement> findAll() {
 	return departementDao.findAll();
 }
 
+@Override
+public int nombreDesDepartements() {
+	return findAll().size();
+}
+
 
 }

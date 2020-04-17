@@ -15,5 +15,5 @@ public interface DepartementService {
 	List<Departement> findAll();
 	int save(Departement departement);
 	int deleteById(Long id);
-
+	int nombreDesDepartements();
 }

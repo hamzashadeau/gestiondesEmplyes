@@ -15,5 +15,6 @@ public interface DemandeCongeService {
 	List<DemandeConge> findAll();
 	int save(DemandeConge demandeConge);
 	int deleteById(Long id);
+	DemandeConge findByEtat(String etat);
 
 }

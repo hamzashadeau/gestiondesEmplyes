@@ -1,5 +1,6 @@
 package com.example.stock.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.stock.Dao.EmployeDao;
+import com.example.stock.Utilis.DateUlils;
 import com.example.stock.bean.Employe;
 import com.example.stock.service.facade.EmployeService;
 
@@ -76,6 +78,56 @@ public int deleteById(Long id) {
 		return 1;
 	} else
 		return -1;
+}
+
+@Override
+public int nombreDesEmployes() {
+	return findAll().size();
+}
+
+@Override
+public int nombreDesEmployesParDepartements(String nomDepartement) {
+	List<Employe> employes = findAll();
+	List<Employe> resultat = new ArrayList<Employe>();
+	employes.forEach(e->{
+		if(e.getDep().getNom().equals(nomDepartement))
+			resultat.add(e);
+	});
+	return resultat.size();
+}
+@Override
+public int nombreDesEmployesParAnneeDeEntré(Integer annee) {
+	List<Employe> employes = findAll();
+	List<Employe> resultat = new ArrayList<Employe>();
+	employes.forEach(e->{
+		if(DateUlils.getYear(e.getDateEntree()) == annee)
+			resultat.add(e);
+	});
+	return resultat.size();
+}
+@Override
+public List<Employe> EmployesParAnneeDeEntré(Integer annee) {
+	List<Employe> employes = findAll();
+	List<Employe> resultat = new ArrayList<Employe>();
+	employes.forEach(e->{
+		if(DateUlils.getYear(e.getDateEntree()) == annee)
+			resultat.add(e);
+	});
+	return resultat;
+}
+@Override
+public Double MoyenDeSalaireParAnnee(int annee) {
+	Double  SomMontant = 0.0;
+	List<Employe> resultat = new ArrayList<Employe>();
+	List<Employe> employes = new ArrayList<Employe>();
+	for (int i = 2010; i < annee; i++) {
+		Integer ans = Integer.valueOf(i);
+			employes.addAll(EmployesParAnneeDeEntré(ans));
+		}
+for (Employe employe : employes) {
+	SomMontant += employe.getMontantDeBase();
+}
+	return SomMontant/resultat.size();
 }
 
 }
